@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <script type="text/javascript">
+    window.onload=function(){
+        var hr = location.href ;
+        var user=hr.substring(hr.indexOf('=')+1,hr.indexOf('#'));
+        document.getElementById('userform').value=user;
+        if(user.length==0)return;
+        var url='https://kenkoooo.com/atcoder/atcoder-api/results?user='+user;
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.responseType = 'json';
+        request.onload = function () {
+            var data = this.response;
+            var sub=document.getElementById("submission");
+            var time=0;
+            var len=0;
+            for(var i=0;i<data.length;i++){
+                time+=data[i].execution_time;
+                console.log(data[i].length);
+                len+=data[i].length;
+            }
+            sub.innerHTML="カップラーメンが"+(time/180/1000)+"個作れます";
+            sub.innerHTML=sub.innerHTML+"<br>地球を"+(len/2/100/1000/40000)+"周できます";
+        };
+        request.send();
+    }
+    function compare(a,b){
+        const A=a.epoch_second;
+        const B=b.epoch_second;
+        let comparision=0;
+        if(A>B){
+            comparision=1
+        }
+        else if(A<B){
+            comparision=-1;
+        }
+        return comparision;
+    }
+  </script>
+  <title>カップラーメンを作ろうな</title>
+  </head>
+  <body>
+    <span style="text-align:center">  
+    <h2>お前がAtCoder上で実行してる時間でカップラーメンが何個作れるか<br>お前がAtCoderに投げてるソースは地球何周分なのか</h2>
+    <form action="#" method="get" name="username">
+    <p>username
+        <input type="text" name="name" id="userform">
+    </p>
+    <p><input type="submit" value="確認"></p>
+    </form>
+    <p id="submission"></p>
+    <p>どうでもいいこと:僕は2文字1㎝くらいで書きます</p>
+    </span>
+  </body>
+</html>
