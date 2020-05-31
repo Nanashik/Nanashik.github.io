@@ -6,13 +6,15 @@
         <link rel="icon" href="favicon.ico">
         <style type="text/css">
         body{
+            background-color: #000;
             margin:0;
+            padding: 0;
         }
         .pages{
             width: 100%;
             height: 10vh;
             display: flex;
-            background-color: black;
+            background-color: #1599AC;
             position: sticky;
             top:0;
         }
@@ -22,106 +24,31 @@
         .pages a{
             text-decoration: none;
         }
+        @keyframes fadein{0%{opacity: 0;}100%{opacity: 1;}}
         </style>
     </head>
 <body>
     <div class="pages">
-        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 40vw;line-height: 5vh;">
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 10vw;line-height: 5vh;">
             <a href="index.html">
-                <h2>Nanashi's Pages</h2>
+                <h4>Exit</h4>
             </a>
         </span>
-        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 30vw;line-height: 5vh;">
             <a href="club.html">
-                <h3>Club</h3>
+                <h3>Main Page</h3>
             </a>
         </span>
-        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 30vw;line-height: 5vh;">
             <a href="mades.html">
                 <h3>Mades</h3>
             </a>
         </span>
-        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 30vw;line-height: 5vh;">
             <a href="https://www.edu.city.yokohama.lg.jp/school/hs/sfh/">
                 <h3>School</h3>
             </a>
         </span>
     </div>
-        ここに書いてく～
-        <pre><code>
-            class Fpair{
-                public int first;
-                public int second;
-                public int third;
-                public long fourth;
-                Fpair(int x,int y,int z,long a){
-                    first=x;
-                    second=y;
-                    third=z;
-                    fourth=a;
-                }
-            }
-
-
-        static int N=scan.nextInt();
-        static int M=scan.nextInt();
-        static long ans=0;
-        static boolean check=false;
-        static boolean visited[]=new boolean[M];
-        static List&lt;ArrayList&lt;Fpair>>ls=new ArrayList&lt;ArrayList&lt;Fpair>>();
-        static List&lt;Integer>keiro=new ArrayList&lt;Integer>();
-        public static void main(String[]$) throws IOException{
-            Arrays.fill(visited, false);
-            for(int i=0;i&lt;N;i++)ls.add(new ArrayList&lt;Fpair>());
-            for(int i=0;i&lt;M;i++) {
-                int a=scan.nextInt();
-                int b=scan.nextInt();
-                int c=scan.nextInt();
-                long d=scan.nextInt();
-                ArrayList&lt;Fpair>l=ls.get(a);
-                l.add(new Fpair(i,b,c,d));
-                ls.set(a, l);
-                l=ls.get(b);
-                l.add(new Fpair(i,a,c,d));
-                ls.set(b, l);
-            }
-            dfs(0,1);
-            System.out.println(ans);
-        }
-        static void dfs(int i,long cost) {
-            if(i==0&&check) {
-                if(ans&lt;cost) {
-                    System.out.println(keiro);
-                    System.out.println(cost);
-                    ans=cost;
-                }
-            }
-            for(int j=0;j&lt;ls.get(i).size();j++) {
-                Fpair f=ls.get(i).get(j);
-                int a=f.first;
-                int b=f.second;
-                int c=f.third;
-                long d=f.fourth;
-                if(!visited[a]) {
-                    visited[a]=true;
-                    if(b==39) {
-                        check=true;
-                    }
-                    if(c==1) {
-                        keiro.add(b);
-                        dfs(b,cost+d);
-                        keiro.remove(keiro.size()-1);
-                    }
-                    if(c==2) {
-                        keiro.add(b);
-                        dfs(b,cost*d);
-                        keiro.remove(keiro.size()-1);
-                    }
-                    check=false;
-                    visited[a]=false;
-                }
-            }
-        }  
-    </code></pre>
 </body>
 </html>
