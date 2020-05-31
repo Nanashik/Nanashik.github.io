@@ -10,7 +10,7 @@
             url = `school_info.json`;
             $.getJSON(url, (data) => {
             var table=document.getElementById('infos');
-            console.log(data.info);
+            console.log(data[0].info);
             table.innerHTML=table.innerHTML+"<tr><th>"+`${data.name}`+"</th><th>"+`${data.info}`+"</th></tr>";
         });
         });
