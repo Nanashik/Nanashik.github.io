@@ -10,15 +10,15 @@
             url = `school_info.json`;
             $.getJSON(url, (data) => {
             var table=document.getElementById('infos');
-            table.innerHTML=table.innerHTML+"<tr><th>"+"</th><th>hoge</th></tr>";
+
+            table.innerHTML=table.innerHTML+"<tr><th>"+`${data.name}`+"</th><th>"+`${data.info}`+"</th></tr>";
         });
         });
         function getmsg(){
             var msg=requ.info.value;
             var nm=requ.name.value;
             var addData={name:nm,massage:msg};
-            const fs = require('fs');
-            fs.writeFileSync('school_info.json', JSON.stringify(addData));
+            
             document.getElementById("messid").value="";
             document.getElementById("nameid").value="";
         }
