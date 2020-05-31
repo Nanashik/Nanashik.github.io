@@ -6,17 +6,66 @@
     </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script language="javascript" type="text/javascript">
-          url = `school_info.json`;
-          $.getJSON(url, (data) => {
-            console.log(data);
-          });
+      $(document).ready(function(){
+            url = `school_info.json`;
+            $.getJSON(url, (data) => {
+            var table=document.getElementById('infos');
+            table.innerHTML=table.innerHTML+"<tr><th>"+"</th><th>hoge</th></tr>";
+        });
+        });
+        function getmsg(){
+            var msg=requ.info.value;
+            var nm=requ.name.value;
+            var addData={name:nm,massage:msg};
+            const fs = require('fs');
+            fs.writeFileSync('school_info.json', JSON.stringify(addData));
+            document.getElementById("messid").value="";
+            document.getElementById("nameid").value="";
+        }
       </script>
     <style>
     body{
         margin: 0;
         background-color:lightsteelblue;
     }
+    table{
+        border-collapse: collapse;
+        border:1px solid #333;
+        width: 100%;
+    }
+    tr,th{
+        border-collapse: collapse;
+        border:1px solid #333;
+    }
+    form{
+        width: 100%;
+        text-align: center;
+    }
+    .inform{
+        height: 300px;
+        width: 50%;
+    }
     </style>
 <body>
+    <div class="info">
+        <table id="infos">
+            <tr>
+                <th>FROM</th>
+                <th>REQUIREMENTS</th>
+            </tr>
+            
+        </table>
+    </div>
+    <form name="requ">
+        <div>
+            <label for="message">username(本名ではなく)</label><br>
+            <input type="textarea" name="name" id="nameid">
+        </div>
+        <div>
+            <label for="message">message</label><br>
+            <input class="inform" type="textarea" name="info" id="messid">
+        </div>
+        <input type="button" onclick="getmsg()" value="送信！">
+    </form>
 </body>
 </html>
