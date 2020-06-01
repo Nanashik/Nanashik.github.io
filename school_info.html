@@ -11,7 +11,7 @@
             $.getJSON(url, (data) => {
             var table=document.getElementById('infos');
             console.log(data[0].info);
-            table.innerHTML=table.innerHTML+"<tr><th>"+`${data.name}`+"</th><th>"+`${data.info}`+"</th></tr>";
+            table.innerHTML=table.innerHTML+"<tr><th>"+`${data[0].name}`+"</th><th>"+`${data[0].info}`+"</th></tr>";
         });
         });
         function getmsg(){
