@@ -20,7 +20,7 @@
             var $addData={"name":nm,"massage":msg};
             
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: 'infos.php',
                 data: $addData,
             }).done(function(data){
