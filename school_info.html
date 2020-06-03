@@ -17,8 +17,15 @@
         function getmsg(){
             var msg=requ.info.value;
             var nm=requ.name.value;
-            var addData={name:nm,massage:msg};
+            var $addData={"name":nm,"massage":msg};
             
+            $.ajax({
+                type: 'POST',
+                url: 'school_info.json',
+                data: $addData,
+            }).done(function(data){
+                alert("送信完了！\nレスポンスデータ：" + data);
+            });
             document.getElementById("messid").value="";
             document.getElementById("nameid").value="";
         }
@@ -49,12 +56,12 @@
 <body>
     <div class="info">
         <table id="infos">
-            <tr>
+            <tbody><tr>
                 <th>FROM</th>
                 <th>REQUIREMENTS</th>
             </tr>
             
-        </table>
+        </tbody><tbody><tr><th>admin</th><th>example</th></tr></tbody></table>
     </div>
     <form name="requ">
         <div>
