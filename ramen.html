@@ -19,7 +19,6 @@
             var len=0;
             for(var i=0;i<data.length;i++){
                 time+=data[i].execution_time;
-                console.log(data[i].length);
                 len+=data[i].length;
             }
             sub.innerHTML="カップラーメンが"+(time/180/1000)+"個作れます";
