@@ -5,6 +5,9 @@
         <title>ぶかつ</title>
         <link rel="icon" href="favicon.ico">
         <style type="text/css">
+        html,body{
+            overflow-x: hidden;
+        }
         body{
             background-color: #000;
             margin:0;
@@ -21,7 +24,24 @@
             width: 5%;
             height: auto;
         }
-        .smartphone{display: block;}
+        .smartphone{
+            font-family: serif;
+            height: 100vh;
+            width: 100%;
+            display: block;
+        }
+        .smartlogo::before{
+            color:#FFF;
+            content:"情報工学部";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100vw;
+            line-height: 100vh;
+            text-align: center;
+            font-size: 50px;
+        }
         .pc{
             font-family: serif;
             height: 100vh;
@@ -33,12 +53,12 @@
         @media screen and (min-width:960px){
             .smartphone{display:none;}
             .pc{display: block;}
+            html,body{
+                overflow: hidden;
+                animation:hidden 0.1s linear 6.5s forwards;
+            }
         }
         /*|animations|*/
-        html,body{
-            overflow: hidden;
-            animation:hidden 0.1s linear 6.5s forwards;
-        }
         @keyframes hidden{
             0%{overflow: hidden;}
             100%{overflow: visible;
@@ -204,6 +224,7 @@
 <body>
     <div class="smartphone">
         <a href="index.html"><img src="door.png" class="door"></a>
+        <div class="smartlogo"></div>
     </div>
     <div class="pc">
         <div class="line1"></div>
