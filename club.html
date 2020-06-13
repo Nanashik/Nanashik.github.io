@@ -12,18 +12,18 @@
             });
         </script>    
         <style type="text/css">
-        html,body{
-            overflow-x: hidden;
-        }
         body{
             background-color: #000;
             margin:0;
-            padding: 0;
         }
-        html a:link, a:visited, a:hover, a:active{
+        html a:link,html a:visited,html a:hover,html a:active{
             color: white;
         }
-        .pages a{
+        .contents a:link,.contents a:visited,.contents a:hover,.contents a:active{
+            color:#000;
+            font-size: 20px;
+        }
+        .contents a{
             text-decoration: none;
         }
         .door{
@@ -44,7 +44,7 @@
             top: 0px;
             left: 0px;
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             line-height: 100vh;
             text-align: center;
             font-size: 50px;
@@ -68,8 +68,7 @@
         /*|animations|*/
         @keyframes hidden{
             0%{overflow: hidden;}
-            100%{overflow: visible;
-                overflow-x: hidden;}
+            100%{overflow: visible;}
         }
         @keyframes aninone{
             0%{visibility: visible;}
@@ -84,19 +83,15 @@
             width: 70%;
             left: 100%;
             top:70%;
-            animation:line1-1 1s ease-out 0s forwards,line1-2 1s ease-out 2s forwards,fadeout 0.1s linear 3s forwards;
+            animation:line1-1 1s ease-out 0s forwards,fadeout 1s ease-out 2s forwards;
         }
         @keyframes line1-1{
             0%{left:-70%;}
             100%{left:0%;}
         }
-        @keyframes line1-2{
-            0%{left:0%;}
-            100%{left:100%;display: none;}
-        }
         .knowledge::before{
             color:#FFF;
-            content:"鬱病";
+            content:"hoge";
             position: absolute;
             top: 35%;
             left: 33%;
@@ -115,19 +110,16 @@
             width: 70%;
             left: 100%;
             top:50%;
-            animation:line2-1 1s ease-out 0s forwards,line2-2 1s ease-out 2s forwards,fadeout 0.1s linear 3s forwards;
+            animation:line2-1 1s ease-out 0s forwards,fadeout 1s ease-out 2s forwards;
+            
         }
         @keyframes line2-1{
             0%{left:100%;}
-            100%{left:30%;}
-        }
-        @keyframes line2-2{
-            0%{left:30%;}
-            100%{left:-70%;display: none;}
+            100%{left:27%;}
         }
         .wisdom::before{
             color:#FFF;
-            content:"存在";
+            content:"hoge";
             position: absolute;
             top: 55%;
             left: 55%;
@@ -146,15 +138,11 @@
             width: 1px;
             left: 40%;
             top:100%;
-            animation:line3-1 1s ease-out 3s forwards,line3-2 1s ease 5s forwards,fadeout 0.1s linear 6s forwards;
+            animation:line3-1 1s ease-out 3s forwards,fadeout 1s ease 5s forwards;
         }
         @keyframes line3-1{
             0%{top:100%;}
             100%{top:0%;}
-        }
-        @keyframes line3-2{
-            0%{top:0%;}
-            100%{top:-100%;display: none;}
         }
         .line4{
             contain: "";
@@ -165,20 +153,16 @@
             width: 1px;
             left: 60%;
             top:-100%;
-            animation:line4-1 1s ease-out 3s forwards,line4-2 1s ease 5s forwards,fadeout 0.1s linear 6s forwards;
+            animation:line4-1 1s ease-out 3s forwards,fadeout 1s ease 5s forwards;
         }
         @keyframes line4-1{
             0%{top:-100%;}
             100%{top:0%;}
         }
-        @keyframes line4-2{
-            0%{top:0%;}
-            100%{top:100%;}
-        }
         .fight::before{
             white-space: pre;
             color:#FFF;
-            content:"繁\A栄";
+            content:"Ho\age";
             position: absolute;
             top: 30%;
             left: 47%;
@@ -210,8 +194,13 @@
             bottom: 0px;
             width: 100%;
             height: 10vh;
+            visibility: hidden;
             opacity: 0;
-            animation: arrow-1 1s linear 6.5s forwards;
+            animation: arrow-2 0.1s linear 6.4s forwards, arrow-1 1s linear 6.5s forwards;
+        }
+        @keyframes arrow-2{
+            0%{visibility: hidden;}
+            100%{visibility: visible;}
         }
         @keyframes arrow-1{
             0%{opacity: 0;}
@@ -219,12 +208,25 @@
         }
         /*|Animations|*/
         .under{
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
         .under h1,h2,h3,h4,p{
             color: #FFF;
+        }
+        .QandA{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contents{
+            height: 10vh;
+            width: 100%;
+            background-color: #FFF;
+            display: flex;
+            position: sticky;
+            top:0;
         }
         </style>
     </head>
@@ -242,16 +244,36 @@
         <div class="line4"></div>
         <div class="fight"></div>
         <div class="logo"></div>
-        <div class="arrow"><p style="text-align: center;margin-top: auto;margin-bottom: auto;color: #000;">v</p></div>
+        <a href="#bottom"><div class="arrow"><p style="text-align: center;margin-top: auto;margin-bottom: auto;color: #000;">v</p></div></a>
         <a href="index.html"><img src="door.png" class="door"></a>
     </div>
+    <div class="contents">
+        <span style="display: inline-block; _display: inline;color:#000;text-align:center;width: 50vw;line-height: 10vh;">
+            <a href="club.html">index</a>
+        </span>
+        <span style="display: inline-block; _display: inline;color:#000;text-align:center;width: 50vw;line-height: 10vh;">
+            <a href="clubinfo.html">about me</a>
+        </span>
+    </div>
     <div class="under">
-        <h1>Q.何をしてる部活なの?</h1>
-        <h2>　プログラミングをしてます。</h2><br>
-        <h1>Q.上の奴は何?</h1>
-        <h2>　全部副部長の<a href="https://twitter.com/tRue_math">tRue_math</a>が悪いです。</h2><br>
-        <h1>Q.なんで内容うすいの?</h1>
-        <h2>　活動がない(6月中は活動がありません…)</h2>
+        <a name="bottom"></a>
+        <div class="QandA">
+            <br>
+            <h1>Q.だれ?</h1>
+            <h2>　YSFH並びにYSFJHの情報工学部です。</h2><br>
+            <h1>Q.何をしてる部活なの?</h1>
+            <h2>　プログラミングをしてます。詳しくは<a href="clubinfo.html" style="color: #FFF;">こちら。</a></h2><br>
+            <h1>Q.上の奴は何?</h1>
+            <h2>　CSSアニメーションというものです。<br>
+            　スマートフォンではうまく作動しない可能性があります。</h2><br>
+            <h1>Q.なんで内容うすいの?</h1>
+            <h2>　活動がない(6月中は活動がありません…)</h2><br>
+            <h1>Q.実績は?</h1>
+            <h2>　情報オリンピック(JOI)本選、ほぼ毎年出場しています。<br>
+                　去年は中高から1人ずつ出場しました。</h2><br>
+            <h1>Q.いつ活動してるの??</h1>
+            <h2>　基本的に月水木です。</h2>
+        </div>
     </div>
 </body>
 </html>

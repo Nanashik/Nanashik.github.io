@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>ぶかつ</title>
+        <link rel="icon" href="favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(function() {
+                $('html,body').animate({ scrollTop: 0 }, '1');
+            });
+        </script>
+        <style type="text/css">
+        body{
+            background-color: #000;
+            margin:0;
+            margin-bottom:100px
+        }
+        .contents{
+            height: 10vh;
+            width: 100%;
+            background-color: #FFF;
+            display: flex;
+            position: sticky;
+            top:0;
+        }
+        .contents a:link,.contents a:visited,.contents a:hover,.contents a:active{
+            color:#000;
+            font-size: 20px;
+        }
+        .contents a{
+            text-decoration: none;
+        }
+        .info{
+            color: #FFF;
+            width: 80%;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
+    </head>
+<body>
+    <div class="contents">
+        <span style="display: inline-block; _display: inline;color:#000;text-align:center;width: 50vw;line-height: 10vh;">
+            <a href="club.html">index</a>
+        </span>
+        <span style="display: inline-block; _display: inline;color:#000;text-align:center;width: 50vw;line-height: 10vh;">
+            <a href="clubinfo.html">about me</a>
+        </span>
+    </div>
+    <div class="info">
+        <h1>どんな問題を解いてるの?</h1>
+        <p>
+            ここでは、第7回JOIの問題を要約して抜粋させていただきます。
+        <br>また、次回の情報オリンピックは20回目になります。
+        <br>問題が気になった方はぜひ<a href="https://atcoder.jp/contests/joi2008yo/tasks" style="color:#FFF">こちら</a>でとけるので挑戦してみてください。
+        </p>
+        <h2>1問目:おつり</h2>
+        <p>
+            1000円札持っていて、N円のものを買います。<br>
+            500円、100円、50円、10円、5円、1円を持っています。<br>
+            おつりの枚数のうち最小のものを求めなさい。
+        </p>
+        <p>e.g.)380 → 4<br>おつりは620円(500+100+10+10)で渡すのが最小となる。</p>
+        <br>
+        <h2>2問目:JOIとIOI</h2>
+        <p>
+            与えられる文字列の中に"JOI"と"IOI"はいくつ出てくるか?
+        </p>
+        <p>e.g.)JOIOIOIOI → JOI:1 IOI:3</p>
+        <br>
+        <h2>3問目:カードゲーム</h2>
+        <p>
+            1~2nまで書かれた2n枚のカードがある。<br>
+            2人にn枚ずつ配り、カードを捨てていく。<br>
+            カードを捨てるには、以下のような制約がある。
+        </p>
+        <ul>
+            <li>場にカードが出ていないなら、好きなものを出せる</li>
+            <li>場にカードが出ているなら、それより大きい持ってる中で最小のカードを出せる</li>
+            <li>カードを出せないなら、パスとなり、場は流れる</li>
+        </ul>
+        <p>どちらかの手持ちがなくなった時、残っているカードの総和が得点となる。<br>
+            2人の得点を求めなさい。
+        </p>
+        <br>
+        <h2>4問目:星座探し</h2>
+        <p>格子状に広がる空の格子点のいくつかに星がある。<br>
+            探したい星座が存在するかを判定しなさい。
+        </p>
+        <p style="display:inline;">
+            <img src="yo_d_1.png"style="width:40%">
+            <img src="yo_d_2.png"style="width:40%">
+        </p>
+        <p>左の画像の星座は右の星空にあるか?という問題です。</p>
+        <br>
+        <p>
+            JOIの予選は6問ありますが、5，6問目は説明が難しいので割愛させていただきます…<br>
+            部員は、日々このような問題を解いて、JOIや、パソコン甲子園などの大会に向けています。
+        </p>
+    </div>
+</body>
+</html>
