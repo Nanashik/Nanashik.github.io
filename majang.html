@@ -2,12 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Nanashi君のぺーじ</title>
-        <link rel="icon" href="favicon.ico">
         <script type="text/javascript">
             function fancheck(){
                 var cnt=0;
                 var boxes=document.getElementsByName("1fan");
+                var iff=0;
+                if(document.getElementsByName("cry").item(0).checked){
+                    iff=1;
+                }
                 for(var i=0;i<boxes.length;i++){
                     if(boxes.item(i).checked){
                         cnt++;
@@ -29,24 +31,30 @@
                 for(var i=0;i<boxes.length;i++){
                     if(boxes.item(i).checked){
                         cnt+=2;
+                        cnt-=iff;
                     }
                 }
                 boxes=document.getElementsByName("3fan-2");
                 for(var i=0;i<boxes.length;i++){
                     if(boxes.item(i).checked){
                         cnt+=3;
+                        cnt-=iff;
                     }
                 }
                 boxes=document.getElementsByName("6fan-5");
                 for(var i=0;i<boxes.length;i++){
                     if(boxes.item(i).checked){
                         cnt+=6;
+                        cnt-=iff;
                     }
                 }
+                cnt+=parseInt(document.getElementById("doras").value, 10);;
                 var ele=document.getElementById("result");
                 ele.innerHTML="お前のふぁんは"+cnt+"です。";
             }
         </script>
+        <title>Nanashi君のぺーじ</title>
+        <link rel="icon" href="favicon.ico">
         <style type="text/css">
         body{
             margin:0;
@@ -152,7 +160,7 @@
         <input type="checkbox"><p>ロン</p>
         <input type="checkbox"><p>ツモ</p>
         <br>
-        <input type="checkbox"><p>鳴いたよ</p>
+        <input type="checkbox" name="cry"><p>鳴いたよ</p>
         <h2>役</h2>
         <input type="checkbox"  name="1fan"><p>立直</p>
         <input type="checkbox"  name="1fan"><p>一発</p>
@@ -195,6 +203,11 @@
         <br>
         <input type="checkbox"  name="nagasi"><p>流し満貫</p>
         <br>
+        <form>
+            <p>ドラ</p><input type=text name=mnt value=0 size=10 readonly id="doras"><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
         <form>
             <p>役満</p><input type=text name=mnt value=0 size=10 readonly><br>
             <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
