@@ -22,7 +22,7 @@
                 len+=data[i].length;
             }
             sub.innerHTML="カップラーメンが"+(time/180/1000)+"個作れます";
-            sub.innerHTML=sub.innerHTML+"<br>地球を"+(len/2/100/1000/40000)+"周できます";
+            sub.innerHTML=sub.innerHTML+"<br>地球を"+(len/100/1000/40000)+"周できます";
         };
         request.send();
     }
@@ -92,7 +92,7 @@
     <p><input type="submit" value="確認"></p>
     </form>
     <p id="submission"></p>
-    <p>どうでもいいこと:僕は2文字1㎝くらいで書きます</p>
+    <p>どうでもいいこと:僕は1文字1㎝くらいで書きます</p>
     </span>
   </body>
 </html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Nanashi君のぺーじ</title>
+        <link rel="icon" href="favicon.ico">
+        <style type="text/css">
+        body{
+            margin:0;
+        }
+        .center{
+            line-height:90vh;
+            text-align:center;
+        }
+        .column{
+            overflow:hidden;
+            height: 90vh;
+            width:100%;
+        }
+        .twitter{
+            animation:roading1 1s ease 0s 1 normal forwards;
+        }
+        .aboutme{animation:roading2 1s ease 0s 1 normal forwards;}
+        .about{
+            opacity: 0;
+            animation:fadein 1s ease 1.2s 1 normal forwards;
+        }
+        .pages{
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            background-color: black;
+            position: sticky;
+            top:0;
+        }
+        .pages a:link, a:visited, a:hover, a:active{
+            color: white;
+        }
+        .pages a{
+            text-decoration: none;
+        }
+        input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        .buttons{
+            margin-left: 30px;
+            margin-right: 30px;
+            text-align: center;
+        }
+        .buttons p{
+            font-size: 25px;
+            line-height: 30px;
+            text-align: center;
+            display:inline;
+        }
+        h4{
+            display:inline;
+        }
+        form{
+            display:inline;
+        }
+        @keyframes roading1{
+            0%{background: white;height: 0;}
+            100%{background: aqua;height: 90vh;}
+        }
+        @keyframes roading2{
+            0%{background: white;width: 0;}
+            100%{background: rgb(0, 255, 76);width: 100%;}
+        }
+        @keyframes fadein{0%{opacity: 0;}100%{opacity: 1;}}
+@media screen and (min-width:960px){
+    .wrap{
+        display:flex;
+    }
+}
+        </style>
+    </head>
+<body>
+    <div class="pages">
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 40vw;line-height: 5vh;">
+            <a href="index.html">
+                <h2>Nanashi's Pages</h2>
+            </a>
+        </span>
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+            <a href="club.html">
+                <h3>Club</h3>
+            </a>
+        </span>
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+            <a href="mades.html">
+                <h3>Mades</h3>
+            </a>
+        </span>
+        <span style="display: inline-block; _display: inline;color:#FFFFFF;text-align:center;width: 20vw;line-height: 5vh;">
+            <a href="https://www.edu.city.yokohama.lg.jp/school/hs/sfh/">
+                <h3>School</h3>
+            </a>
+        </span>
+    </div>
+    <h1 style="text-align: center;">麻雀の点数を計算するやつ</h1>
+    <div class="buttons">
+        <h2>初期条件</h2>
+        <input type="checkbox" name="fans" ><p>親</p>
+        <input type="checkbox" name="fans" ><p>子</p>
+        <br>
+        <input type="checkbox" name="fans" ><p>ロン</p>
+        <input type="checkbox" name="fans" ><p>ツモ</p>
+        <h2>役</h2>
+        <input type="checkbox" name="fans" ><p>立直</p>
+        <input type="checkbox" name="fans" ><p>一発</p>
+        <input type="checkbox" name="fans" ><p>自摸</p>
+        <input type="checkbox" name="fans" ><p>平和</p>
+        <input type="checkbox" name="fans" ><p>断么九</p>
+        <br>
+        <input type="checkbox" name="fans" ><p>一盃口</p>
+        <input type="checkbox" name="fans" ><p>白</p>
+        <input type="checkbox" name="fans" ><p>發</p>
+        <input type="checkbox" name="fans" ><p>中</p>
+        <input type="checkbox" name="fans" ><p>場風</p>
+        <br>
+        <input type="checkbox" name="fans" ><p>自風</p>
+        <input type="checkbox" name="fans" ><p>槍槓</p>
+        <input type="checkbox" name="fans" ><p>嶺上開花</p>
+        <input type="checkbox" name="fans" ><p>海底撈月</p>
+        <input type="checkbox" name="fans" ><p>河底撈魚</p>
+        <br><br>
+        <input type="checkbox" name="fans" ><p>W立直</p>
+        <input type="checkbox" name="fans" ><p>七対子</p>
+        <input type="checkbox" name="fans" ><p>対々和</p>
+        <input type="checkbox" name="fans" ><p>三暗刻</p>
+        <br>
+        <input type="checkbox" name="fans" ><p>三色同刻</p>
+        <input type="checkbox" name="fans" ><p>三色同順</p>
+        <input type="checkbox" name="fans" ><p>混老頭</p>
+        <input type="checkbox" name="fans" ><p>一気通貫</p>
+        <br>
+        <input type="checkbox" name="fans" ><p>混全帯么九</p>
+        <input type="checkbox" name="fans" ><p>小三元</p>
+        <input type="checkbox" name="fans" ><p>三槓子</p>
+        <br>
+        <br>
+        <input type="checkbox" name="fans" ><p>混一色</p>
+        <input type="checkbox" name="fans" ><p>純チャン</p>
+        <input type="checkbox" name="fans" ><p>二盃口</p>
+        <input type="checkbox" name="fans" ><p>清一色</p>
+        <br>
+        <br>
+        <input type="checkbox" name="fans" ><p>流し満貫</p>
+        <br>
+        <form>
+            <p>役満</p><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form>
+        <br><br>
+        <h2>符計算</h2>
+        <input type="checkbox" name="fans" ><p>頭:1・9・字牌</p>
+        <br>
+        <h3>明刻</h3>
+        <form>
+            <h4>2~8</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        <form>
+            <h4>1・9・字牌</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        
+        <h3>暗刻</h3>
+        <form>
+            <h4>2~8</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        <form>
+            <h4>1・9・字牌</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        <h3>明槓</h3>
+        <form>
+            <h4>2~8</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        <form>
+            <h4>1・9・字牌</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        
+        <h3>暗槓</h3>
+        <form>
+            <h4>2~8</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+        <form>
+            <h4>1・9・字牌</h4><input type=text name=mnt value=0 size=10 readonly><br>
+            <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
+            <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
+        </form><br>
+
+        <h3>待ち</h3>
+        
+        <input type="checkbox" name="fans" ><p>両面</p>
+        <input type="checkbox" name="fans" ><p>カンチャン</p>
+        <input type="checkbox" name="fans" ><p>ペンチャン</p>
+        <input type="checkbox" name="fans" ><p>シャンポン</p>
+        <input type="checkbox" name="fans" ><p>単騎</p>
+        <br>
+
+        <input type="button" value="計算！">
+        <h1>お前の点数は点です。</h1>
+    </div>
+</body>
+</html>
