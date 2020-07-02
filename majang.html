@@ -4,6 +4,50 @@
         <meta charset="UTF-8">
         <title>Nanashi君のぺーじ</title>
         <link rel="icon" href="favicon.ico">
+        <script type="text/javascript">
+            function fancheck(){
+                var cnt=0;
+                var boxes=document.getElementsByName("1fan");
+                console.log(boxes);
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt++;
+                    }
+                }
+                boxes=document.getElementsByName("2fan");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt+=2;
+                    }
+                }
+                boxes=document.getElementsByName("3fan");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt+=3;
+                    }
+                }
+                boxes=document.getElementsByName("2fan-1");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt+=2;
+                    }
+                }
+                boxes=document.getElementsByName("3fan-2");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt+=3;
+                    }
+                }
+                boxes=document.getElementsByName("6fan-5");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        cnt+=6;
+                    }
+                }
+                var ele=document.getElementById("result");
+                ele.innerHTML="お前のふぁんは"+cnt+"です。";
+            }
+        </script>
         <style type="text/css">
         body{
             margin:0;
@@ -103,52 +147,54 @@
     <h1 style="text-align: center;">麻雀の点数を計算するやつ</h1>
     <div class="buttons">
         <h2>初期条件</h2>
-        <input type="checkbox" name="fans" ><p>親</p>
-        <input type="checkbox" name="fans" ><p>子</p>
+        <input type="checkbox"><p>親</p>
+        <input type="checkbox"><p>子</p>
         <br>
-        <input type="checkbox" name="fans" ><p>ロン</p>
-        <input type="checkbox" name="fans" ><p>ツモ</p>
+        <input type="checkbox"><p>ロン</p>
+        <input type="checkbox"><p>ツモ</p>
+        <br>
+        <input type="checkbox"><p>鳴いたよ</p>
         <h2>役</h2>
-        <input type="checkbox" name="fans" ><p>立直</p>
-        <input type="checkbox" name="fans" ><p>一発</p>
-        <input type="checkbox" name="fans" ><p>自摸</p>
-        <input type="checkbox" name="fans" ><p>平和</p>
-        <input type="checkbox" name="fans" ><p>断么九</p>
+        <input type="checkbox"  name="1fan"><p>立直</p>
+        <input type="checkbox"  name="1fan"><p>一発</p>
+        <input type="checkbox"  name="1fan"><p>自摸</p>
+        <input type="checkbox"  name="1fan"><p>平和</p>
+        <input type="checkbox"  name="1fan"><p>断么九</p>
         <br>
-        <input type="checkbox" name="fans" ><p>一盃口</p>
-        <input type="checkbox" name="fans" ><p>白</p>
-        <input type="checkbox" name="fans" ><p>發</p>
-        <input type="checkbox" name="fans" ><p>中</p>
-        <input type="checkbox" name="fans" ><p>場風</p>
+        <input type="checkbox"  name="1fan"><p>一盃口</p>
+        <input type="checkbox"  name="1fan"><p>白</p>
+        <input type="checkbox"  name="1fan"><p>發</p>
+        <input type="checkbox"  name="1fan"><p>中</p>
+        <input type="checkbox"  name="1fan"><p>場風</p>
         <br>
-        <input type="checkbox" name="fans" ><p>自風</p>
-        <input type="checkbox" name="fans" ><p>槍槓</p>
-        <input type="checkbox" name="fans" ><p>嶺上開花</p>
-        <input type="checkbox" name="fans" ><p>海底撈月</p>
-        <input type="checkbox" name="fans" ><p>河底撈魚</p>
+        <input type="checkbox"  name="1fan"><p>自風</p>
+        <input type="checkbox"  name="1fan"><p>槍槓</p>
+        <input type="checkbox"  name="1fan"><p>嶺上開花</p>
+        <input type="checkbox"  name="1fan"><p>海底撈月</p>
+        <input type="checkbox"  name="1fan"><p>河底撈魚</p>
         <br><br>
-        <input type="checkbox" name="fans" ><p>W立直</p>
-        <input type="checkbox" name="fans" ><p>七対子</p>
-        <input type="checkbox" name="fans" ><p>対々和</p>
-        <input type="checkbox" name="fans" ><p>三暗刻</p>
+        <input type="checkbox"  name="2fan"><p>W立直</p>
+        <input type="checkbox"  name="2fan"><p>七対子</p>
+        <input type="checkbox"  name="2fan"><p>対々和</p>
+        <input type="checkbox"  name="2fan"><p>三暗刻</p>
         <br>
-        <input type="checkbox" name="fans" ><p>三色同刻</p>
-        <input type="checkbox" name="fans" ><p>三色同順</p>
-        <input type="checkbox" name="fans" ><p>混老頭</p>
-        <input type="checkbox" name="fans" ><p>一気通貫</p>
+        <input type="checkbox"  name="2fan-1"><p>三色同刻</p>
+        <input type="checkbox"  name="2fan"><p>三色同順</p>
+        <input type="checkbox"  name="2fan"><p>混老頭</p>
+        <input type="checkbox"  name="2fan-1"><p>一気通貫</p>
         <br>
-        <input type="checkbox" name="fans" ><p>混全帯么九</p>
-        <input type="checkbox" name="fans" ><p>小三元</p>
-        <input type="checkbox" name="fans" ><p>三槓子</p>
-        <br>
-        <br>
-        <input type="checkbox" name="fans" ><p>混一色</p>
-        <input type="checkbox" name="fans" ><p>純チャン</p>
-        <input type="checkbox" name="fans" ><p>二盃口</p>
-        <input type="checkbox" name="fans" ><p>清一色</p>
+        <input type="checkbox"  name="2fan-1"><p>混全帯么九</p>
+        <input type="checkbox"  name="2fan"><p>小三元</p>
+        <input type="checkbox"  name="2fan"><p>三槓子</p>
         <br>
         <br>
-        <input type="checkbox" name="fans" ><p>流し満貫</p>
+        <input type="checkbox"  name="3fan-2"><p>混一色</p>
+        <input type="checkbox"  name="3fan-2"><p>純チャン</p>
+        <input type="checkbox"  ><p>二盃口</p>
+        <input type="checkbox"  name="6fan-5"><p>清一色</p>
+        <br>
+        <br>
+        <input type="checkbox"  name="nagasi"><p>流し満貫</p>
         <br>
         <form>
             <p>役満</p><input type=text name=mnt value=0 size=10 readonly><br>
@@ -157,7 +203,7 @@
         </form>
         <br><br>
         <h2>符計算</h2>
-        <input type="checkbox" name="fans" ><p>頭:1・9・字牌</p>
+        <input type="checkbox"  ><p>頭:1・9・字牌</p>
         <br>
         <h3>明刻</h3>
         <form>
@@ -212,15 +258,15 @@
         </form>
         <h3>待ち</h3>
         
-        <input type="checkbox" name="fans" ><p>両面</p>
-        <input type="checkbox" name="fans" ><p>カンチャン</p>
-        <input type="checkbox" name="fans" ><p>ペンチャン</p>
-        <input type="checkbox" name="fans" ><p>シャンポン</p>
-        <input type="checkbox" name="fans" ><p>単騎</p>
+        <input type="checkbox"  ><p>両面</p>
+        <input type="checkbox"  ><p>カンチャン</p>
+        <input type="checkbox"  ><p>ペンチャン</p>
+        <input type="checkbox"  ><p>シャンポン</p>
+        <input type="checkbox"  ><p>単騎</p>
         <br>
 
-        <input type="button" value="計算！">
-        <h1>お前の点数は点です。</h1>
+        <input type="button" value="計算！"onclick="fancheck();">
+        <h1 id="result">お前の点数は点です。</h1>
     </div>
 </body>
 </html>
