@@ -4,6 +4,17 @@
         <meta charset="UTF-8">
         <script type="text/javascript">
             function fancheck(){
+                if(parseInt(document.getElementById("yakuman").value, 10)!=0){
+                    if(document.getElementById("oya").checked){
+                        var ele=document.getElementById("result");
+                        ele.innerHTML="お前の点は"+(48000*parseInt(document.getElementById("yakuman").value, 10))+"です。";
+                    }
+                    if(document.getElementById("ko").checked){
+                        var ele=document.getElementById("result");
+                        ele.innerHTML="お前の点は"+(32000*parseInt(document.getElementById("yakuman").value, 10))+"です。";
+                    }
+                    return;
+                }
                 var cnt=0;
                 var boxes=document.getElementsByName("1fan");
                 var iff=0;
@@ -48,7 +59,7 @@
                         cnt-=iff;
                     }
                 }
-                cnt+=parseInt(document.getElementById("doras").value, 10);;
+                cnt+=parseInt(document.getElementById("doras").value, 10);
                 var ele=document.getElementById("result");
                 ele.innerHTML="お前のふぁんは"+cnt+"です。";
             }
@@ -154,8 +165,8 @@
     <h1 style="text-align: center;">麻雀の点数を計算するやつ7/3</h1>
     <div class="buttons">
         <h2>初期条件</h2>
-        <input type="checkbox"><p>親</p>
-        <input type="checkbox"><p>子</p>
+        <input type="checkbox" id="oya"><p>親</p>
+        <input type="checkbox" id="ko"><p>子</p>
         <br>
         <input type="checkbox"><p>ロン</p>
         <input type="checkbox"><p>ツモ</p>
@@ -209,7 +220,7 @@
             <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
         </form><br>
         <form>
-            <p>役満</p><input type=text name=mnt value=0 size=10 readonly><br>
+            <p>役満</p><input type=text name=mnt value=0 size=10 readonly id="yakuman"><br>
             <input type=button value="＋" onClick="javascript:this.form.mnt.value++;"> 
             <input type=button value="－" onClick="javascript:this.form.mnt.value--;">
         </form>
