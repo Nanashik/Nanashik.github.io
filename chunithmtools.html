@@ -24,10 +24,11 @@
 <script> 
   function check_musicname(){
     var x=document.getElementById("musics");
-    var str=document.getElementById("musicname").value;
+    var str=""+document.getElementById("musicname").value;
    $.getJSON("music.json",function(data){
     var len=data.length;
     for(var i=0;i<len;i++){
+      console.log(str);
       var d=data[i].name;
       if(d.indexof(str)!=-1){
         x.innerHTML="music:"+data[i].name+",rank:"+data[i].rank;
