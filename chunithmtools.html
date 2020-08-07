@@ -23,8 +23,11 @@
  
 <script>
   function check_musicname(){
+    console.log("OK");
    $.getJSON("music.json",function(data){
+     console.log("Hello");
     var len=data.lengh;
+    console.log(len);
     for(var i=0;i<len;i++){
       console.log("music:"+data[i].music+",rank:"+data[i].rank);
     }
