@@ -23,14 +23,14 @@
   <p id="musics"></p>
 <script> 
   function check_musicname(){
-    console.log("OK");
     var x=document.getElementById("musics");
+    var str=document.getElementById("musicname").value;
    $.getJSON("music.json",function(data){
-     console.log("Hello");
     var len=data.length;
     for(var i=0;i<len;i++){
-      x.innerHTML=x.innerHTML+"music:"+data[i].name+",rank:"+data[i].rank+"<br>";
-      console.log("music:"+data[i].name+",rank:"+data[i].rank);
+      if(data[i].music.indexof(str)!=-1){
+        x.innerHTML="music:"+data[i].music+",rank:"+data[i].rank;
+      }
     }
    });
   }
@@ -65,7 +65,6 @@ $('#upfile').change(function(){
           try {
             json = JSON.parse(atob(parsed.data));
           } catch(e) {};
-          console.log(json);
         }
     reader.readAsDataURL(file);
     }
