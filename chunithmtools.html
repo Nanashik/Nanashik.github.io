@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="Shift_JIS">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <title>サンプル</title>
 </head>
@@ -23,10 +23,12 @@
  
 <script>
   function check_musicname(){
-    url='music.json';
-    $.getJSON(url,(data)=>{
-        console.log('id=${data.music},name=${data.rank}');
-    });
+   $.getJSON("music.json",function(data){
+    var len=data.lengh;
+    for(var i=0;i<len;i++){
+      console.log("music:"+data[i].music+",rank:"+data[i].rank);
+    }
+   });
   }
 var parseDataURL = function( dataURL ){
 		var rslt = {
