@@ -28,10 +28,9 @@
    $.getJSON("music.json",function(data){
     var len=data.length;
     for(var i=0;i<len;i++){
-      var d=data[i].music;
-      console.log(data[i].music);
+      var d=data[i].name;
       if(d.indexof(str)!=-1){
-        x.innerHTML="music:"+data[i].music+",rank:"+data[i].rank;
+        x.innerHTML="music:"+data[i].name+",rank:"+data[i].rank;
       }
     }
    });
