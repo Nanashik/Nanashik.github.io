@@ -28,7 +28,8 @@
    $.getJSON("music.json",function(data){
     var len=data.length;
     for(var i=0;i<len;i++){
-      if(data[i].music.indexof(str)!=-1){
+      var d=data[i].music;
+      if(d.indexof(str)!=-1){
         x.innerHTML="music:"+data[i].music+",rank:"+data[i].rank;
       }
     }
