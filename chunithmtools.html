@@ -9,27 +9,59 @@
 <body>
 <form action="upload.php" method="post" enctype="multipart/form-data">
   <p>
+    Your JSON File
     <input type="file" name="upfile" id="upfile" accept=".json">
   </p>
-  <p><input type="submit" name="save" value="保存" /></p>
+</form>
+<form>
+  <p>
+    楽曲名
+    <input type="text" name="musicname" id="musicname">
+  </p>
+  <button type='button' onclick="check_musicname();">submit</button>
 </form>
  
 <script>
+  function check_musicname(){
+    url='music.json';
+    $.getJSON(url,(data)=>{
+        console.log('id=${data.music},name=${data.rank}');
+    });
+  }
+var parseDataURL = function( dataURL ){
+		var rslt = {
+				mediaType : null,
+				encoding : null,
+				isBase64 : null,
+				data : null
+			};
+		if( /^data:([^;]+)(;charset=([^,;]+))?(;base64)?,(.*)/.test( dataURL ) ) {
+			rslt.mediaType = RegExp.$1 || 'text/plain';
+			rslt.encoding  = RegExp.$3 || 'US-ASCII';
+			rslt.isBase64  = String(RegExp.$4) === ';base64';
+			rslt.data      = RegExp.$5;
+		}
+		return rslt;
+}
+function Pair(first,second,third){
+  this.first=first;
+  this.second=second;
+  this.third=third;
+}
 $('#upfile').change(function(){
-  if (this.files.length > 0) {
+ if (this.files.length > 0) {
         // 選択されたファイル情報を取得
         var file = this.files[0];
-        // readerのresultプロパティに、データURLとしてエンコードされたファイルデータを格納
         var reader = new FileReader();
-        reader.readAsDataURL(file);
-        
-        reader.onload = function() {
-            var read=new FileReader();
-            read.readAsDataURL(reader.result);
-            read.onload=function(){
-                console.log(read.result);
-            }
+        reader.onload = function(event) {
+          var parsed = parseDataURL(event.target.result); //dataにjsonのデータを入れたい。
+          var json;
+          try {
+            json = JSON.parse(atob(parsed.data));
+          } catch(e) {};
+          console.log(json);
         }
+    reader.readAsDataURL(file);
     }
 });
 </script>
