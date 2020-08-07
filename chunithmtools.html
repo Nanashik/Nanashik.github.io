@@ -27,7 +27,7 @@
    $.getJSON("music.json",function(data){
      console.log("Hello");
     var len=data.lengh;
-    concole.log(data);
+    concole.log(data[0].music);
     for(var i=0;i<len;i++){
       console.log("music:"+data[i].music+",rank:"+data[i].rank);
     }
