@@ -20,14 +20,16 @@
   </p>
   <button type='button' onclick="check_musicname();">submit</button>
 </form>
- 
+  <p id="musics"></p>
 <script  charset="shift_jis"> 
   function check_musicname(){
     console.log("OK");
+    var x=document.getElementById("musics");
    $.getJSON("music.json",function(data){
      console.log("Hello");
     var len=data.length;
     for(var i=0;i<len;i++){
+      x=x+"music:"+data[i].name+",rank:"+data[i].rank+"<br>";
       console.log("music:"+data[i].name+",rank:"+data[i].rank);
     }
    });
