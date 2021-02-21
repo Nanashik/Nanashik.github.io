@@ -59,9 +59,69 @@
                         cnt-=iff;
                     }
                 }
+                var hu=0;
+                boxes=document.getElementsByName("atama");
+                if(boxes.item(0).checked){
+                    hu+=2;
+                }
+                boxes=document.getElementById("minko19");
+                hu+=boxes.value*2;
+
+                boxes=document.getElementById("minko28");
+                hu+=boxes.value*4;
+
+                boxes=document.getElementById("anko19");
+                hu+=boxes.value*4;
+
+                boxes=document.getElementById("anko28");
+                hu+=boxes.value*8;
+
+                boxes=document.getElementById("minkan19");
+                hu+=boxes.value*8;
+                
+                boxes=document.getElementById("minkan28");
+                hu+=boxes.value*16;
+
+                boxes=document.getElementById("ankan19");
+                hu+=boxes.value*16;
+                
+                boxes=document.getElementById("ankan28");
+                hu+=boxes.value*32;
+
+                iff=0;
+                if(document.getElementById("ron").checked){
+                    iff=1;
+                }
+                boxes=document.getElementsByName("ryansyan");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        if(iff==0){
+                            hu+=2;
+                        }
+                    }
+                }
+                boxes=document.getElementsByName("kanpentan");
+                for(var i=0;i<boxes.length;i++){
+                    if(boxes.item(i).checked){
+                        hu+=2;
+                        if(iff==0){
+                            hu+=2;
+                        }
+                    }
+                }
+                if(document.getElementById("pinhu").checked){
+                    if(iff==0){
+                        hu=20;
+                    }else{
+                        hu=30;
+                    }
+                }
+                if(document.getElementById("tiitoi").checked){
+                    hu=25;
+                }
                 cnt+=parseInt(document.getElementById("doras").value, 10);
                 var ele=document.getElementById("result");
-                ele.innerHTML="お前のふぁんは"+cnt+"です。";
+                ele.innerHTML="お前のふぁんは"+hu+"です。";
             }
         </script>
         <title>Nanashi君のぺーじ</title>
@@ -162,14 +222,14 @@
             </a>
         </span>
     </div>
-    <h1 style="text-align: center;">麻雀の点数を計算するやつ7/3</h1>
+    <h1 style="text-align: center;">麻雀の点数を計算するやつ</h1>
     <div class="buttons">
         <h2>初期条件</h2>
         <input type="checkbox" id="oya"><p>親</p>
         <input type="checkbox" id="ko"><p>子</p>
         <br>
-        <input type="checkbox"><p>ロン</p>
-        <input type="checkbox"><p>ツモ</p>
+        <input type="checkbox" id="ron"><p>ロン</p>
+        <input type="checkbox" id="tumo"><p>ツモ</p>
         <br>
         <input type="checkbox" name="cry"><p>鳴いたよ</p>
         <h2>役</h2>
@@ -208,7 +268,7 @@
         <br>
         <input type="checkbox"  name="3fan-2"><p>混一色</p>
         <input type="checkbox"  name="3fan-2"><p>純チャン</p>
-        <input type="checkbox"  ><p>二盃口</p>
+        <input type="checkbox"  name="3fan"><p>二盃口</p>
         <input type="checkbox"  name="6fan-5"><p>清一色</p>
         <br>
         <br>
@@ -226,14 +286,14 @@
         </form>
         <br><br>
         <h2>符計算</h2>
-        <input type="checkbox"  ><p>頭:1・9・字牌</p>
+        <input type="checkbox"  name="atama"><p>頭:役牌</p>
         <br>
         <h3>明刻</h3>
         <form>
             <h4>幺九牌</h4>
-            <input type="text" name="cnt19" value=0 size=10 readonly>
+            <input type="text" name="cnt19" value=0 size=10 readonly id="minko19">
             <h4>2~8</h4>
-            <input type="text" name="cnt28" value=0 size=10 readonly><br>
+            <input type="text" name="cnt28" value=0 size=10 readonly id="minko28"><br>
             <input type=button value="＋" onClick="javascript:this.form.cnt19.value++;"> 
             <input type=button value="－" onClick="javascript:this.form.cnt19.value--;">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -244,9 +304,9 @@
         <h3>暗刻</h3>
         <form>
             <h4>幺九牌</h4>
-            <input type="text" name="cnt19" value=0 size=10 readonly>
+            <input type="text" name="cnt19" value=0 size=10 readonly id="anko19">
             <h4>2~8</h4>
-            <input type="text" name="cnt28" value=0 size=10 readonly><br>
+            <input type="text" name="cnt28" value=0 size=10 readonly id="anko28"><br>
             <input type=button value="＋" onClick="javascript:this.form.cnt19.value++;"> 
             <input type=button value="－" onClick="javascript:this.form.cnt19.value--;">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -257,9 +317,9 @@
         <h3>明槓</h3>
         <form>
             <h4>幺九牌</h4>
-            <input type="text" name="cnt19" value=0 size=10 readonly>
+            <input type="text" name="cnt19" value=0 size=10 readonly id="minkan19">
             <h4>2~8</h4>
-            <input type="text" name="cnt28" value=0 size=10 readonly><br>
+            <input type="text" name="cnt28" value=0 size=10 readonly id="minkan28"><br>
             <input type=button value="＋" onClick="javascript:this.form.cnt19.value++;"> 
             <input type=button value="－" onClick="javascript:this.form.cnt19.value--;">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -270,9 +330,9 @@
         <h3>暗槓</h3>
         <form>
             <h4>幺九牌</h4>
-            <input type="text" name="cnt19" value=0 size=10 readonly>
+            <input type="text" name="cnt19" value=0 size=10 readonly id="ankan19">
             <h4>2~8</h4>
-            <input type="text" name="cnt28" value=0 size=10 readonly><br>
+            <input type="text" name="cnt28" value=0 size=10 readonly id="ankan28"><br>
             <input type=button value="＋" onClick="javascript:this.form.cnt19.value++;"> 
             <input type=button value="－" onClick="javascript:this.form.cnt19.value--;">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -281,11 +341,13 @@
         </form>
         <h3>待ち</h3>
         
-        <input type="checkbox"  ><p>両面</p>
-        <input type="checkbox"  ><p>カンチャン</p>
-        <input type="checkbox"  ><p>ペンチャン</p>
-        <input type="checkbox"  ><p>シャンポン</p>
-        <input type="checkbox"  ><p>単騎</p>
+        <input type="checkbox" name="ryansyan"><p>両面</p>
+        <input type="checkbox" name="kanpentan"><p>カンチャン</p>
+        <input type="checkbox" name="kanpentan"><p>ペンチャン</p>
+        <input type="checkbox" name="ryansyan"><p>シャンポン</p>
+        <input type="checkbox" name="kanpentan"><p>単騎</p>
+        <input type="checkbox" id="pinhu"><p>平和の形</p>
+        <input type="checkbox" id="tiitoi"><p>七対子</p>
         <br>
 
         <input type="button" value="計算！"onclick="fancheck();">

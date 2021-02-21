@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Code</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/mono-blue.min.css">   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+<body>
+    <pre>
+        <code>
+            import java.util.ArrayList;
+            import java.util.Arrays;
+            import java.util.Scanner;
+            
+            class Main {
+                public static void main(String[] $) {
+                    Scanner stdIn = new Scanner(System.in);
+                    int number_of_node = stdIn.nextInt();
+                    int nodes[][] = new int[number_of_node][2];// reposit node's coordinates.
+                    int minX = 100, minY = 100, maxX = -1, maxY = -1;
+                    ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+                    for (int i = 0; i < number_of_node; i++) {
+                        int nodeX = stdIn.nextInt();
+                        int nodeY = stdIn.nextInt();
+                        nodes[i][0] = nodeX;
+                        nodes[i][1] = nodeY;
+                        minX = Math.min(minX, nodeX);
+                        minY = Math.min(minY, nodeY);
+                        maxX = Math.max(maxX, nodeX);
+                        maxY = Math.max(maxY, nodeY);
+                        ArrayList<Integer> ls = new ArrayList<Integer>();
+                        ls.add(nodeX);
+                        ls.add(nodeY);
+                        list.add(ls);
+                    }
+                    int devideX = (minX + maxX) / 2;
+                    int devideY = (minY + maxY) / 2;
+                    ArrayList<ArrayList<Integer>> quadrant1 = new ArrayList<ArrayList<Integer>>();
+                    ArrayList<ArrayList<Integer>> quadrant2 = new ArrayList<ArrayList<Integer>>();
+                    ArrayList<ArrayList<Integer>> quadrant3 = new ArrayList<ArrayList<Integer>>();
+                    ArrayList<ArrayList<Integer>> quadrant4 = new ArrayList<ArrayList<Integer>>();
+                    for (int i = 0; i < number_of_node; i++) {
+                        if (nodes[i][0] < devideX) {
+                            if (nodes[i][1] > devideY) {
+                                ArrayList<Integer> points = new ArrayList<Integer>();
+                                points.add(nodes[i][0]);
+                                points.add(nodes[i][1]);
+                                quadrant1.add(points);
+                            } else {
+                                ArrayList<Integer> points = new ArrayList<Integer>();
+                                points.add(nodes[i][0]);
+                                points.add(nodes[i][1]);
+                                quadrant2.add(points);
+                            }
+                        } else {
+                            if (nodes[i][1] > devideY) {
+                                ArrayList<Integer> points = new ArrayList<Integer>();
+                                points.add(nodes[i][0]);
+                                points.add(nodes[i][1]);
+                                quadrant4.add(points);
+                            } else {
+                                ArrayList<Integer> points = new ArrayList<Integer>();
+                                points.add(nodes[i][0]);
+                                points.add(nodes[i][1]);
+                                quadrant3.add(points);
+                            }
+                        }
+                    }
+                    double cost1 = solveTSP(quadrant1);
+                    double cost2 = solveTSP(quadrant2);
+                    double cost3 = solveTSP(quadrant3);
+                    double cost4 = solveTSP(quadrant4);
+                    double y = cost1 + cost2 + cost3 + cost4;
+                    double x = solveTSP(list);
+                    double e = y / x * 100;
+                    System.out.println(e);
+                    stdIn.close();
+                }
+            
+                static double solveTSP(ArrayList<ArrayList<Integer>> nodes) {
+                    double dp[][] = new double[1 << nodes.size()][nodes.size()];
+                    for (int i = 0; i < (1 << nodes.size()); i++) {
+                        Arrays.fill(dp[i], Integer.MAX_VALUE / 2);
+                    }
+                    dp[0][0] = 0;
+                    for (int S = 1; S < (1 << nodes.size()); S++) {
+                        for (int V = 0; V < nodes.size(); V++) {
+                            if ((S & (1 << V)) > 0) {
+                                for (int i = 0; i < nodes.size(); i++) {
+                                    ArrayList<Integer> node1 = nodes.get(i);
+                                    ArrayList<Integer> node2 = nodes.get(V);
+                                    double cost = Math.sqrt((node1.get(0) - node2.get(0)) * (node1.get(0) - node2.get(0))
+                                            + (node1.get(1) - node2.get(1)) * (node1.get(1) - node2.get(1)));
+                                    dp[S][V] = Math.min(dp[S][V], dp[S - (1 << V)][i] + cost);
+                                }
+                            }
+                        }
+                    }
+                    return dp[(1 << nodes.size()) - 1][0];
+                }
+            }
+        </code>
+       </pre>
+</body>
+</html>
